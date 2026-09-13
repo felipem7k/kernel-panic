@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://1yp85s6ut0ws"]
+
+[ext_resource type="Texture2D" uid="uid://da8ytw526k3s2" path="res://assets/brick_forte.png" id="1_eafeu"]
+[ext_resource type="Script" uid="uid://buewxtgvhdusy" path="res://scripts/brick_forte.gd" id="2_uuv8h"]
+[ext_resource type="Texture2D" uid="uid://di2da5jwgeeax" path="res://assets/brick.png" id="3_eqdrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(12.499994, 3.6000013)
+
+[node name="Brick Forte" type="Sprite2D" unique_id=1798234684]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = ExtResource("1_eafeu")
+script = ExtResource("2_uuv8h")
+forte_textura = ExtResource("1_eafeu")
+fraco_textura = ExtResource("3_eqdrq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1687791971 groups=["enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1291919098]
+position = Vector2(0.050006866, 1.9073486e-06)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_yf5fn")

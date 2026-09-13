@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dua8bhb1jooul"]
+
+[ext_resource type="PackedScene" uid="uid://cemogjqk88bsy" path="res://prefab/brick.tscn" id="1_7bb4d"]
+[ext_resource type="PackedScene" uid="uid://qpy6eqs7q52" path="res://prefab/player.tscn" id="2_1b3iq"]
+[ext_resource type="PackedScene" uid="uid://bbr4ehwucb4mn" path="res://prefab/bullet.tscn" id="3_k05ng"]
+[ext_resource type="PackedScene" uid="uid://1yp85s6ut0ws" path="res://prefab/brick_forte.tscn" id="4_k05ng"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font_size = 40
+
+[node name="Cena Principal" type="Node2D" unique_id=1713383301]
+
+[node name="Bricks" type="Node2D" parent="." unique_id=218420989]
+
+[node name="Brick" parent="Bricks" unique_id=1798234684 instance=ExtResource("1_7bb4d")]
+position = Vector2(555, 138)
+
+[node name="Brick2" parent="Bricks" unique_id=451373686 instance=ExtResource("1_7bb4d")]
+position = Vector2(363, 134.00002)
+
+[node name="Brick3" parent="Bricks" unique_id=1081516884 instance=ExtResource("1_7bb4d")]
+position = Vector2(734.00006, 135)
+
+[node name="Brick4" parent="Bricks" unique_id=1863207498 instance=ExtResource("1_7bb4d")]
+position = Vector2(928.00006, 138)
+
+[node name="Brick5" parent="Bricks" unique_id=1212966627 instance=ExtResource("1_7bb4d")]
+position = Vector2(170.00003, 143)
+
+[node name="Brick Forte" parent="Bricks" unique_id=730793144 instance=ExtResource("4_k05ng")]
+position = Vector2(564, 221)
+
+[node name="Brick Forte2" parent="Bricks" unique_id=1090807515 instance=ExtResource("4_k05ng")]
+position = Vector2(366, 221.00002)
+
+[node name="Brick Forte3" parent="Bricks" unique_id=877932550 instance=ExtResource("4_k05ng")]
+position = Vector2(163, 225)
+
+[node name="Brick Forte4" parent="Bricks" unique_id=891697602 instance=ExtResource("4_k05ng")]
+position = Vector2(742, 221.00002)
+
+[node name="Brick Forte5" parent="Bricks" unique_id=1633826256 instance=ExtResource("4_k05ng")]
+position = Vector2(934, 215)
+
+[node name="Player" parent="." unique_id=1887351228 instance=ExtResource("2_1b3iq")]
+position = Vector2(569.00006, 511.99997)
+scale = Vector2(13.115512, 13.115511)
+velocidade = 1133.28
+margin = 90
+
+[node name="Bullet" parent="." unique_id=82425991 instance=ExtResource("3_k05ng")]
+position = Vector2(569.00006, 511)
+
+[node name="Control" type="Control" parent="." unique_id=1597006552]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Control" unique_id=65388336]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 31.0
+offset_right = 701.0
+offset_bottom = 124.0
+text = "PRESSIONE ESPAÇO PARA LANÇAR!"
+label_settings = SubResource("LabelSettings_g4v7s")

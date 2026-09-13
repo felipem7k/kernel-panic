@@ -43,13 +43,14 @@ position = Vector2(742, 221.00002)
 position = Vector2(934, 215)
 
 [node name="Player" parent="." unique_id=1887351228 instance=ExtResource("2_1b3iq")]
-position = Vector2(569.00006, 511.99997)
-scale = Vector2(13.115512, 13.115511)
+position = Vector2(568.00006, 512)
+scale = Vector2(0.38681024, 0.38681003)
 velocidade = 1133.28
 margin = 90
 
 [node name="Bullet" parent="." unique_id=82425991 instance=ExtResource("3_k05ng")]
-position = Vector2(569.00006, 511)
+position = Vector2(568.00006, 514)
+scale = Vector2(6.218745, 6.218745)
 
 [node name="Control" type="Control" parent="." unique_id=1597006552]
 layout_mode = 3

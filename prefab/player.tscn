@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://qpy6eqs7q52"]
 
-[ext_resource type="Texture2D" uid="uid://bqiwrs4csxbm2" path="res://assets/player.png" id="1_oj046"]
+[ext_resource type="Texture2D" uid="uid://dxvwywys2gu3n" path="res://assets/player.png" id="1_oj046"]
 [ext_resource type="Script" uid="uid://bhr8q3d67lctk" path="res://scripts/player.gd" id="2_a1o1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(16.000002, 6.000001)
+size = Vector2(531.9001, 145.1)
 
 [node name="Player" type="Sprite2D" unique_id=1887351228]
 texture_filter = 1
@@ -16,7 +16,7 @@ velocidade = 272.521
 [node name="Area2D" type="Area2D" parent="." unique_id=2059172628 groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=872142330]
-position = Vector2(2.3543834e-07, 4.7683702e-08)
+position = Vector2(-0.049993895, -4.25)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(0, 0.6445916, 0.28399763, 0.41960785)

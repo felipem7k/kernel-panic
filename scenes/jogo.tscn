@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://qpy6eqs7q52" path="res://prefab/player.tscn" id="2_1b3iq"]
 [ext_resource type="PackedScene" uid="uid://bbr4ehwucb4mn" path="res://prefab/bullet.tscn" id="3_k05ng"]
 [ext_resource type="PackedScene" uid="uid://1yp85s6ut0ws" path="res://prefab/brick_forte.tscn" id="4_k05ng"]
+[ext_resource type="Texture2D" uid="uid://ba8iced5c8x5y" path="res://assets/bullet.png" id="5_0c0ry"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
 font_size = 40
@@ -49,8 +50,11 @@ velocidade = 1133.28
 margin = 90
 
 [node name="Bullet" parent="." unique_id=82425991 instance=ExtResource("3_k05ng")]
-position = Vector2(568, 518)
-scale = Vector2(0.14303616, 0.14303616)
+position = Vector2(568.99994, 516)
+scale = Vector2(0.18403672, 0.18403672)
+texture = ExtResource("5_0c0ry")
+centered = false
+offset = Vector2(-236, -287.595)
 
 [node name="Control" type="Control" parent="." unique_id=1597006552]
 layout_mode = 3

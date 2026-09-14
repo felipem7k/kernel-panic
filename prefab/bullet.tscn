@@ -6,14 +6,16 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 2.9410903
 
-[node name="Bullet" type="Sprite2D" unique_id=82425991]
+[node name="Bullet" type="Node2D" unique_id=82425991]
 texture_filter = 1
 position = Vector2(-213, -214)
 scale = Vector2(0.9105571, 0.91659594)
+script = ExtResource("2_l5glv")
+
+[node name="Imagem" type="Sprite2D" parent="."]
 texture = ExtResource("1_y25gk")
 centered = false
 offset = Vector2(-236, -287.595)
-script = ExtResource("2_l5glv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=364905920 groups=["bullet"]]
 position = Vector2(-1.0982361, 4.3639374)

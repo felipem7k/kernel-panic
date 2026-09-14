@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://6ebi5lm54yoc" path="res://scripts/bullet.gd" id="2_l5glv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 2.9410903
+radius = 119.10941
 
 [node name="Bullet" type="Node2D" unique_id=82425991]
 texture_filter = 1
@@ -12,7 +12,7 @@ position = Vector2(-213, -214)
 scale = Vector2(0.9105571, 0.91659594)
 script = ExtResource("2_l5glv")
 
-[node name="Imagem" type="Sprite2D" parent="."]
+[node name="Imagem" type="Sprite2D" parent="." unique_id=966982010]
 texture = ExtResource("1_y25gk")
 centered = false
 offset = Vector2(-236, -287.595)
@@ -21,7 +21,7 @@ offset = Vector2(-236, -287.595)
 position = Vector2(-1.0982361, 4.3639374)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=232768254]
-position = Vector2(1.4305115e-06, 3.85046e-05)
+position = Vector2(-16.47343, -29.456783)
 shape = SubResource("CircleShape2D_g4v7s")
 debug_color = Color(0.7933274, 0.31697178, 0.72711444, 0.41960785)
 

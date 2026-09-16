@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://cemogjqk88bsy"]
 
-[ext_resource type="Texture2D" uid="uid://di2da5jwgeeax" path="res://assets/brick.png" id="1_nakam"]
+[ext_resource type="Texture2D" uid="uid://bxxena32c8mga" path="res://assets/brick.png" id="1_nakam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(12.499994, 3.6000013)
+size = Vector2(556.1499, 565.85034)
 
 [node name="Brick" type="Sprite2D" unique_id=1798234684]
 texture_filter = 1
-scale = Vector2(10, 10)
+position = Vector2(1, 4.5474735e-13)
+scale = Vector2(0.30926913, 0.30926907)
 texture = ExtResource("1_nakam")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1687791971 groups=["enemies"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1291919098]
-position = Vector2(0.050006866, 1.9073486e-06)
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(1.2397766e-05, 1.6167272)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_yf5fn")

@@ -9,6 +9,7 @@ var DISTACIA_DO_PLAYER = 48
 
 @onready var player = $"../Player"
 @onready var texto = $"../Control/Label"
+@onready var bg_texto = $"../Control/LabelBackgound"
 @onready var imagem: Sprite2D = $Imagem
 
 @export_range(-180.0, 180.0, 1.0) var angulo_original_imagem: float = 45.0
@@ -18,6 +19,7 @@ func lancar(posicao: Vector2) -> void:
 	visible = true
 	ativa = true
 	texto.visible = false
+	bg_texto.visible = false
 	
 	var ir_esqueda = randi() % 2 == 0
 	var vx = -rebote * 0.4 if ir_esqueda else rebote *0.4
@@ -47,6 +49,7 @@ func atualizar_rotacao_imagem() -> void:
 func saiu_da_tela():
 	if position.y > get_viewport_rect().size.y:
 		texto.visible = true
+		bg_texto.visible = true
 		ativa = false
 		visible = false
 		velocidade = Vector2.ZERO

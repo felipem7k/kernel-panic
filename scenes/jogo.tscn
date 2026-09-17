@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dua8bhb1jooul"]
 
+[ext_resource type="Texture2D" uid="uid://bt86fqihipis2" path="res://assets/background-single.png" id="1_4sjka"]
 [ext_resource type="PackedScene" uid="uid://qpy6eqs7q52" path="res://prefab/player.tscn" id="2_1b3iq"]
+[ext_resource type="Texture2D" uid="uid://b7nwkm64ksvwg" path="res://assets/background-bars.png" id="2_ogo8m"]
 [ext_resource type="PackedScene" uid="uid://bbr4ehwucb4mn" path="res://prefab/bullet.tscn" id="3_k05ng"]
-[ext_resource type="Texture2D" uid="uid://b0wfuieny62nk" path="res://assets/background.png" id="4_0c0ry"]
 [ext_resource type="PackedScene" uid="uid://1yp85s6ut0ws" path="res://prefab/brick_forte.tscn" id="4_k05ng"]
 [ext_resource type="FontFile" uid="uid://cc55cooyqhw7h" path="res://assets/PressStart2P-Regular.ttf" id="5_0c0ry"]
 
@@ -15,10 +16,23 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Cena Principal" type="Node2D" unique_id=1713383301]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1556269456]
+[node name="Background" type="Node2D" parent="." unique_id=135853899]
+
+[node name="Single" type="Sprite2D" parent="Background" unique_id=1556269456]
 position = Vector2(577.8889, 325.125)
 scale = Vector2(0.6016204, 0.6016204)
-texture = ExtResource("4_0c0ry")
+texture = ExtResource("1_4sjka")
+
+[node name="Bars" type="Sprite2D" parent="Background" unique_id=1842483029]
+position = Vector2(577.889, 325.125)
+scale = Vector2(0.6016203, 0.6016203)
+texture = ExtResource("2_ogo8m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background/Bars" unique_id=741688661]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Bars/StaticBody2D" unique_id=532564996]
+position = Vector2(-950.7658, 530.2348)
+polygon = PackedVector2Array(-8.126349, 9.765259, 60.02294, 9.765259, 60.02294, -982.55493, 1843.5398, -982.55493, 1843.5398, 9.765259, 1910.027, 9.765259, 1910.027, -1070.6504, -8.126349, -1068.9882)
 
 [node name="Bricks" type="Node2D" parent="." unique_id=218420989]
 
@@ -53,6 +67,7 @@ position = Vector2(568.99994, 516)
 scale = Vector2(0.18403672, 0.18403672)
 
 [node name="Control" type="Control" parent="." unique_id=1597006552]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3

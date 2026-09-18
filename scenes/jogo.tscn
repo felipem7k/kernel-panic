@@ -67,7 +67,6 @@ position = Vector2(568.99994, 516)
 scale = Vector2(0.18403672, 0.18403672)
 
 [node name="Control" type="Control" parent="." unique_id=1597006552]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 3

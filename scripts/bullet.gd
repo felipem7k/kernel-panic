@@ -11,6 +11,7 @@ var DISTACIA_DO_PLAYER = 48
 @onready var texto = $"../Control/Label"
 @onready var bg_texto = $"../Control/LabelBackgound"
 @onready var imagem: Sprite2D = $Imagem
+@onready var colisao: CollisionShape2D = $Area2D/CollisionShape2D
 
 @export_range(-180.0, 180.0, 1.0) var angulo_original_imagem: float = 45.0
 
@@ -31,8 +32,7 @@ func _ready() -> void:
 	visible = false
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if ativa:
 		position += velocidade * delta
 		
@@ -72,21 +72,45 @@ func aumentar_gradualmente_a_velocidade():
 	velocidade.y = clamp(velocidade.y*1.02, velocidade.y-300, velocidade.y+300)
 	velocidade.x = clamp(velocidade.x*1.02, velocidade.x-300, velocidade.x+300)
 
+func rebater_no_brick(area: Area2D) -> bool:
+	var colisao_brick: CollisionShape2D = area.get_node("CollisionShape2D")
+	var limites_brick: Rect2 = colisao_brick.global_transform * colisao_brick.shape.get_rect()
+	var limites_bola: Rect2 = colisao.global_transform * colisao.shape.get_rect()
+	if not limites_bola.intersects(limites_brick):
+		return false
+
+	var diferenca := limites_bola.get_center() - limites_brick.get_center()
+	var sobreposicao := (limites_bola.size + limites_brick.size) * 0.5 - diferenca.abs()
+	var normal: Vector2
+	var distancia: float
+	if sobreposicao.x < sobreposicao.y:
+		normal = Vector2.RIGHT if diferenca.x > 0.0 else Vector2.LEFT
+		distancia = sobreposicao.x
+	else:
+		normal = Vector2.DOWN if diferenca.y > 0.0 else Vector2.UP
+		distancia = sobreposicao.y
+
+	if velocidade.dot(normal) >= 0.0:
+		return false
+
+	global_position += normal * (distancia + 1.0)
+	velocidade = velocidade.bounce(normal)
+	return true
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	if not ativa:
+		return
+
 	if area.is_in_group("player"):
 		velocidade.y = -abs(velocidade.y)
 		if velocidade.y == 0.0:
 			velocidade.y = -rebote
 		aumentar_gradualmente_a_velocidade()
-	if(area.is_in_group("enemies")):
-		var centro_obj = area.global_position
-		var diff = global_position - centro_obj
-		if abs(diff.x) > abs(diff.y):
-			velocidade.x = -velocidade.x
-		else:
-			velocidade.y = -velocidade.y
-			
+	if area.is_in_group("enemies"):
 		var obj = area.get_parent()
+		if obj.is_queued_for_deletion() or not rebater_no_brick(area):
+			return
+
 		if obj.has_method("foi_acertado"):
 			obj.foi_acertado()
 		else:

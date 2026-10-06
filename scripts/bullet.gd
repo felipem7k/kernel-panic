@@ -1,8 +1,7 @@
-extends Node2D
+extends CharacterBody2D
 
 var velocidade = Vector2(200, -350)
 var rebote = 700
-var margin = 32
 
 var ativa = false
 var DISTACIA_DO_PLAYER = 48
@@ -34,9 +33,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if ativa:
-		position += velocidade * delta
-		
-		rebate_na_tela()
+		var wall_collision := move_and_collide(velocidade * delta)
+		if wall_collision:
+			velocidade = velocidade.bounce(wall_collision.get_normal())
+
 		atualizar_rotacao_imagem()
 		saiu_da_tela()
 	elif Input.is_action_pressed("atirar"):
@@ -54,20 +54,6 @@ func saiu_da_tela():
 		visible = false
 		velocidade = Vector2.ZERO
 	
-func rebate_na_tela():
-	var tela = get_viewport_rect()
-	
-	if position.x <= margin:
-		position.x = margin
-		velocidade.x = abs(velocidade.x)
-	elif position.x >= tela.size.x - margin:
-		position.x = tela.size.x - margin
-		velocidade.x = -abs(velocidade.x)
-		
-	if position.y <= margin:
-		position.y = margin
-		velocidade.y = abs(velocidade.y)
-
 func aumentar_gradualmente_a_velocidade():
 	velocidade.y = clamp(velocidade.y*1.02, velocidade.y-300, velocidade.y+300)
 	velocidade.x = clamp(velocidade.x*1.02, velocidade.x-300, velocidade.x+300)

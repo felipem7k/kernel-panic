@@ -29,6 +29,7 @@ scale = Vector2(0.6016203, 0.6016203)
 texture = ExtResource("2_ogo8m")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background/Bars" unique_id=741688661]
+collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Bars/StaticBody2D" unique_id=532564996]
 position = Vector2(-950.7658, 530.2348)
@@ -60,7 +61,6 @@ scale = Vector2(1.2, 1.2)
 position = Vector2(568.00006, 512)
 scale = Vector2(0.38681024, 0.38681003)
 velocidade = 1133.28
-margin = 90
 
 [node name="Bullet" parent="." unique_id=82425991 instance=ExtResource("3_k05ng")]
 position = Vector2(568.99994, 516)

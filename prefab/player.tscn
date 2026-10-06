@@ -6,12 +6,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(531.9001, 145.1)
 
-[node name="Player" type="Sprite2D" unique_id=1887351228]
+[node name="Player" type="CharacterBody2D" unique_id=1887351228]
 texture_filter = 1
 scale = Vector2(10, 10)
-texture = ExtResource("1_oj046")
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_a1o1i")
 velocidade = 272.521
+
+[node name="Imagem" type="Sprite2D" parent="." unique_id=1730926154]
+texture = ExtResource("1_oj046")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1218645537]
+position = Vector2(-0.049993895, -4.25)
+shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2059172628 groups=["player"]]
 

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://7w6oxpifdql4"]
+
+[ext_resource type="Script" uid="uid://bcvtfu1eh3siw" path="res://scripts/game_over.gd" id="1_gm0vr"]
+[ext_resource type="FontFile" uid="uid://cc55cooyqhw7h" path="res://assets/PressStart2P-Regular.ttf" id="2_f7tnk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("2_f7tnk")
+font_size = 64
+font_color = Color(1, 0.2, 0.2, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_subtitle"]
+font = ExtResource("2_f7tnk")
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hint"]
+font = ExtResource("2_f7tnk")
+font_size = 16
+font_color = Color(1, 1, 0, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="CanvasLayer" unique_id=1573904218]
+process_mode = 3
+layer = 10
+visible = false
+script = ExtResource("1_gm0vr")
+
+[node name="Background" type="ColorRect" parent="." unique_id=902117435]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.84313726)
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1846250793]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="Title" type="Label" parent="Content" unique_id=665381029]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Content" unique_id=1209476852]
+layout_mode = 2
+text = "O SISTEMA FOI INVADIDO"
+label_settings = SubResource("LabelSettings_subtitle")
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="Content" unique_id=388715604]
+layout_mode = 2
+text = "PRESSIONE ESPAÇO PARA REINICIAR"
+label_settings = SubResource("LabelSettings_hint")
+horizontal_alignment = 1

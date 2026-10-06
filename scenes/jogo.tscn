@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbr4ehwucb4mn" path="res://prefab/bullet.tscn" id="3_k05ng"]
 [ext_resource type="PackedScene" uid="uid://1yp85s6ut0ws" path="res://prefab/brick_forte.tscn" id="4_k05ng"]
 [ext_resource type="FontFile" uid="uid://cc55cooyqhw7h" path="res://assets/PressStart2P-Regular.ttf" id="5_0c0ry"]
+[ext_resource type="PackedScene" uid="uid://7w6oxpifdql4" path="res://prefab/game_over.tscn" id="6_gm0vr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
 font = ExtResource("5_0c0ry")
@@ -89,3 +90,7 @@ offset_bottom = 368.0
 text = "PRESSIONE ESPAÇO PARA LANÇAR!"
 label_settings = SubResource("LabelSettings_g4v7s")
 horizontal_alignment = 1
+
+[node name="GameOver" parent="." unique_id=1962481307 instance=ExtResource("6_gm0vr")]
+
+[connection signal="ball_lost" from="Bullet" to="GameOver" method="show_screen"]

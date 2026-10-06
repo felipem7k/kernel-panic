@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal ball_lost
+
 var velocidade = Vector2(200, -350)
 var rebote = 700
 
@@ -48,11 +50,10 @@ func atualizar_rotacao_imagem() -> void:
 
 func saiu_da_tela():
 	if position.y > get_viewport_rect().size.y:
-		texto.visible = true
-		bg_texto.visible = true
 		ativa = false
 		visible = false
 		velocidade = Vector2.ZERO
+		ball_lost.emit()
 	
 func aumentar_gradualmente_a_velocidade():
 	velocidade.y = clamp(velocidade.y*1.02, velocidade.y-300, velocidade.y+300)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxxena32c8mga"
-path="res://.godot/imported/brick.png-2752dffcc7852625bd2ce25e2bde0c3a.ctex"
+uid="uid://b1vnav01v24pk"
+path="res://.godot/imported/virus-02-01.png-dd692d9fc9d63be82c67e2140e56c376.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/brick.png"
-dest_files=["res://.godot/imported/brick.png-2752dffcc7852625bd2ce25e2bde0c3a.ctex"]
+source_file="res://assets/virus-02-01.png"
+dest_files=["res://.godot/imported/virus-02-01.png-dd692d9fc9d63be82c67e2140e56c376.ctex"]
 
 [params]
 

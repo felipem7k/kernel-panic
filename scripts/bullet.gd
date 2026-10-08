@@ -15,6 +15,7 @@ var DISTACIA_DO_PLAYER = 48
 @onready var colisao: CollisionShape2D = $Area2D/CollisionShape2D
 
 @export_range(-180.0, 180.0, 1.0) var angulo_original_imagem: float = 45.0
+@export_range(700.0, 3000.0, 10.0) var max_speed: float = 900.0
 
 func lancar(posicao: Vector2) -> void:
 	position = posicao + Vector2(0, -DISTACIA_DO_PLAYER)
@@ -48,16 +49,25 @@ func atualizar_rotacao_imagem() -> void:
 	if not velocidade.is_zero_approx():
 		imagem.rotation = velocidade.angle() - deg_to_rad(angulo_original_imagem)
 
+func deactivate() -> void:
+	ativa = false
+	visible = false
+	velocidade = Vector2.ZERO
+
+func reset() -> void:
+	deactivate()
+	texto.visible = true
+	bg_texto.visible = true
+
 func saiu_da_tela():
 	if position.y > get_viewport_rect().size.y:
-		ativa = false
-		visible = false
-		velocidade = Vector2.ZERO
+		deactivate()
 		ball_lost.emit()
 	
 func aumentar_gradualmente_a_velocidade():
 	velocidade.y = clamp(velocidade.y*1.02, velocidade.y-300, velocidade.y+300)
 	velocidade.x = clamp(velocidade.x*1.02, velocidade.x-300, velocidade.x+300)
+	velocidade = velocidade.limit_length(max_speed)
 
 func rebater_no_brick(area: Area2D) -> bool:
 	var colisao_brick: CollisionShape2D = area.get_node("CollisionShape2D")
@@ -98,8 +108,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if obj.is_queued_for_deletion() or not rebater_no_brick(area):
 			return
 
-		if obj.has_method("foi_acertado"):
-			obj.foi_acertado()
+		if obj.has_method("take_hit"):
+			obj.take_hit()
 		else:
 			obj.queue_free()
 			

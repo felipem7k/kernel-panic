@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bp1xbnbpifql"]
+
+[ext_resource type="Script" uid="uid://b5ij40yuadldr" path="res://scripts/virus.gd" id="1_virus"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_virus"]
+size = Vector2(65.7, 65.6)
+
+[node name="Virus" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_virus")
+
+[node name="Image" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_virus")

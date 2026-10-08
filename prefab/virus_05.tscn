@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bwlfkspxic774"]
+
+[ext_resource type="PackedScene" uid="uid://bp1xbnbpifql" path="res://prefab/virus.tscn" id="1_virus"]
+[ext_resource type="Texture2D" uid="uid://cyh1ln3ynxcm8" path="res://assets/virus-05-01.png" id="2_stage1"]
+[ext_resource type="Texture2D" uid="uid://dmq8m0kirxby7" path="res://assets/virus-05-02.png" id="3_stage2"]
+[ext_resource type="Texture2D" uid="uid://dyyygsph21rpv" path="res://assets/virus-05-03.png" id="4_stage3"]
+[ext_resource type="Texture2D" uid="uid://boiagvix7mgm0" path="res://assets/virus-05-04.png" id="5_stage4"]
+[ext_resource type="Texture2D" uid="uid://b1dqaidjdwpth" path="res://assets/virus-05-05.png" id="6_stage5"]
+
+[node name="Virus 05" instance=ExtResource("1_virus")]
+textures = Array[Texture2D]([ExtResource("2_stage1"), ExtResource("3_stage2"), ExtResource("4_stage3"), ExtResource("5_stage4"), ExtResource("6_stage5")])

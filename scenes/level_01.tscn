@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c4r55pv1vxvnh"]
+
+[ext_resource type="Script" uid="uid://br575s22klsc5" path="res://scripts/bricks.gd" id="1_bricks"]
+[ext_resource type="PackedScene" uid="uid://cabcmiap50gxx" path="res://prefab/virus_01.tscn" id="2_virus"]
+
+[node name="Level 01" type="Node2D"]
+script = ExtResource("1_bricks")
+
+[node name="Virus 1" parent="." instance=ExtResource("2_virus")]
+position = Vector2(178, 221)
+scale = Vector2(1.2, 1.2)
+
+[node name="Virus 2" parent="." instance=ExtResource("2_virus")]
+position = Vector2(378, 221)
+scale = Vector2(1.2, 1.2)
+
+[node name="Virus 3" parent="." instance=ExtResource("2_virus")]
+position = Vector2(578, 221)
+scale = Vector2(1.2, 1.2)
+
+[node name="Virus 4" parent="." instance=ExtResource("2_virus")]
+position = Vector2(778, 221)
+scale = Vector2(1.2, 1.2)
+
+[node name="Virus 5" parent="." instance=ExtResource("2_virus")]
+position = Vector2(978, 221)
+scale = Vector2(1.2, 1.2)

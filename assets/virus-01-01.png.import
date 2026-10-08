@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1vnav01v24pk"
-path="res://.godot/imported/brick_forte.png-785f59c0f307f35fe73443b18f2ffd24.ctex"
+uid="uid://b2vs3ys1d00ph"
+path="res://.godot/imported/virus-01-01.png-442b27436ccd49b239833ebce0e1732f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/brick_forte.png"
-dest_files=["res://.godot/imported/brick_forte.png-785f59c0f307f35fe73443b18f2ffd24.ctex"]
+source_file="res://assets/virus-01-01.png"
+dest_files=["res://.godot/imported/virus-01-01.png-442b27436ccd49b239833ebce0e1732f.ctex"]
 
 [params]
 

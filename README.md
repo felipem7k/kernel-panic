@@ -35,3 +35,10 @@ The project started from a base template provided by **professor Ignacio Sepúlv
 
 - Base template: professor Ignacio Sepúlveda
 - Development: student project for IFSC
+- Soundtrack: ["Short Track #4853 (Industraumatic)"](https://freesound.org/people/looplicator/sounds/873615/) by looplicator, via Freesound, licensed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Sound effects, all via Freesound:
+  - Virus hit: ["Enemy hit (Tower Defense Sounds)"](https://freesound.org/people/packsmithy/sounds/873647/) by Packsmithy, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+  - Wall hit: ["Hitting a padded wall Single Shot"](https://freesound.org/people/velcronator/sounds/733141/) by velcronator, licensed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+  - Victory: ["Success3.wav"](https://freesound.org/people/Kagateni/sounds/404360/) by Kagateni, licensed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+  - Game over: ["Password Fail (Harsh Denial)"](https://freesound.org/people/SilverIllusionist/sounds/853057/) by SilverIllusionist, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+  - Select: ["SYS_glitched_select"](https://freesound.org/people/MirMaximus/sounds/864199/) by MirMaximus, licensed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)

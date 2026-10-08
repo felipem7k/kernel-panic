@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d0jumq1288l3u" path="res://scenes/level_03.tscn" id="12_level3"]
 [ext_resource type="PackedScene" uid="uid://bfklnc642w4ou" path="res://scenes/level_04.tscn" id="13_level4"]
 [ext_resource type="PackedScene" uid="uid://uaublrwsalh" path="res://scenes/level_05.tscn" id="14_level5"]
+[ext_resource type="AudioStream" uid="uid://bt4trpx2acqv6" path="res://assets/soundtrack.mp3" id="15_soundtrack"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
 font = ExtResource("5_0c0ry")
@@ -43,6 +44,12 @@ collision_layer = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Bars/StaticBody2D" unique_id=532564996]
 position = Vector2(-950.7658, 530.2348)
 polygon = PackedVector2Array(-8.126349, 9.765259, 60.02294, 9.765259, 60.02294, -982.55493, 1843.5398, -982.55493, 1843.5398, 9.765259, 1910.027, 9.765259, 1910.027, -1070.6504, -8.126349, -1068.9882)
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="." unique_id=1274958306]
+process_mode = 3
+stream = ExtResource("15_soundtrack")
+volume_db = -8.0
+autoplay = true
 
 [node name="Levels" type="Node2D" parent="." unique_id=218420989]
 

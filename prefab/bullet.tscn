@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://ba8iced5c8x5y" path="res://assets/bullet.png" id="1_y25gk"]
 [ext_resource type="Script" uid="uid://6ebi5lm54yoc" path="res://scripts/bullet.gd" id="2_l5glv"]
+[ext_resource type="AudioStream" uid="uid://de4it7ip1prlq" path="res://assets/enemy-hit.wav" id="3_hit"]
+[ext_resource type="AudioStream" uid="uid://ca1mi04y24ak3" path="res://assets/wall-hit.wav" id="4_wall"]
+[ext_resource type="AudioStream" uid="uid://b4pf47an2x4dd" path="res://assets/select.wav" id="5_select"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 119.10941
@@ -30,5 +33,15 @@ position = Vector2(-1.0982361, 4.3639374)
 position = Vector2(-16.47343, -29.456783)
 shape = SubResource("CircleShape2D_g4v7s")
 debug_color = Color(0.7933274, 0.31697178, 0.72711444, 0.41960785)
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=1481920357]
+process_mode = 3
+stream = ExtResource("3_hit")
+
+[node name="WallSound" type="AudioStreamPlayer" parent="." unique_id=1481920358]
+stream = ExtResource("4_wall")
+
+[node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=1481920359]
+stream = ExtResource("5_select")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

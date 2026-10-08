@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bcvtfu1eh3siw" path="res://scripts/game_over.gd" id="1_gm0vr"]
 [ext_resource type="FontFile" uid="uid://cc55cooyqhw7h" path="res://assets/PressStart2P-Regular.ttf" id="2_f7tnk"]
+[ext_resource type="AudioStream" uid="uid://dmfvsh3t8bwln" path="res://assets/fail.wav" id="3_fail"]
+[ext_resource type="AudioStream" uid="uid://b4pf47an2x4dd" path="res://assets/select.wav" id="4_select"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_title"]
 font = ExtResource("2_f7tnk")
@@ -63,3 +65,9 @@ layout_mode = 2
 text = "PRESSIONE ESPAÇO PARA REINICIAR"
 label_settings = SubResource("LabelSettings_hint")
 horizontal_alignment = 1
+
+[node name="ResultSound" type="AudioStreamPlayer" parent="." unique_id=1730582941]
+stream = ExtResource("3_fail")
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="." unique_id=1730582942]
+stream = ExtResource("4_select")

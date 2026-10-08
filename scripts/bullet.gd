@@ -13,6 +13,9 @@ var DISTACIA_DO_PLAYER = 48
 @onready var bg_texto = $"../Control/LabelBackgound"
 @onready var imagem: Sprite2D = $Imagem
 @onready var colisao: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var hit_sound: AudioStreamPlayer = $HitSound
+@onready var wall_sound: AudioStreamPlayer = $WallSound
+@onready var launch_sound: AudioStreamPlayer = $LaunchSound
 
 @export_range(-180.0, 180.0, 1.0) var angulo_original_imagem: float = 45.0
 @export_range(700.0, 3000.0, 10.0) var max_speed: float = 900.0
@@ -23,7 +26,8 @@ func lancar(posicao: Vector2) -> void:
 	ativa = true
 	texto.visible = false
 	bg_texto.visible = false
-	
+	launch_sound.play()
+
 	var ir_esqueda = randi() % 2 == 0
 	var vx = -rebote * 0.4 if ir_esqueda else rebote *0.4
 	velocidade = Vector2(vx, -rebote).normalized() * rebote
@@ -39,6 +43,7 @@ func _physics_process(delta: float) -> void:
 		var wall_collision := move_and_collide(velocidade * delta)
 		if wall_collision:
 			velocidade = velocidade.bounce(wall_collision.get_normal())
+			wall_sound.play()
 
 		atualizar_rotacao_imagem()
 		saiu_da_tela()
@@ -108,6 +113,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		if obj.is_queued_for_deletion() or not rebater_no_brick(area):
 			return
 
+		hit_sound.play()
 		if obj.has_method("take_hit"):
 			obj.take_hit()
 		else:

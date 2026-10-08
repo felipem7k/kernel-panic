@@ -14,12 +14,21 @@
 [ext_resource type="PackedScene" uid="uid://bfklnc642w4ou" path="res://scenes/level_04.tscn" id="13_level4"]
 [ext_resource type="PackedScene" uid="uid://uaublrwsalh" path="res://scenes/level_05.tscn" id="14_level5"]
 [ext_resource type="AudioStream" uid="uid://bt4trpx2acqv6" path="res://assets/soundtrack.mp3" id="15_soundtrack"]
+[ext_resource type="Script" path="res://scripts/score.gd" id="16_score"]
+[ext_resource type="Script" path="res://scripts/score_label.gd" id="17_score_label"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
 font = ExtResource("5_0c0ry")
 font_size = 32
 font_color = Color(1, 1, 0, 1)
 outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_score"]
+font = ExtResource("5_0c0ry")
+font_size = 14
+font_color = Color(1, 1, 0, 1)
+outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Cena Principal" type="Node2D" unique_id=1713383301]
@@ -52,6 +61,9 @@ volume_db = -8.0
 autoplay = true
 
 [node name="Levels" type="Node2D" parent="." unique_id=218420989]
+
+[node name="Score" type="Node" parent="."]
+script = ExtResource("16_score")
 
 [node name="Player" parent="." unique_id=1887351228 instance=ExtResource("2_1b3iq")]
 position = Vector2(568.00006, 512)
@@ -86,8 +98,21 @@ text = "PRESSIONE ESPAÇO PARA LANÇAR!"
 label_settings = SubResource("LabelSettings_g4v7s")
 horizontal_alignment = 1
 
+[node name="ScoreLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 14.0
+offset_right = 1010.0
+offset_bottom = 40.0
+text = "PONTOS 00000   RECORDE 00000"
+label_settings = SubResource("LabelSettings_score")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("17_score_label")
+
 [node name="GameOver" parent="." unique_id=1962481307 instance=ExtResource("6_gm0vr")]
 
 [node name="Victory" parent="." unique_id=1428730659 instance=ExtResource("8_vc4tq")]
 
 [connection signal="ball_lost" from="Bullet" to="GameOver" method="show_screen"]
+[connection signal="scored" from="Bullet" to="Score" method="add"]

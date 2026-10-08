@@ -7,6 +7,7 @@ extends Node2D
 		if is_node_ready():
 			show_stage()
 @export_range(0.5, 1.0, 0.01) var damage_scale: float = 0.85
+@export var hit_points := 10
 
 var hits_taken := 0
 
@@ -16,14 +17,15 @@ var hits_taken := 0
 func _ready() -> void:
 	show_stage()
 
-func take_hit() -> void:
+func take_hit() -> int:
 	hits_taken += 1
 	if hits_taken >= textures.size():
 		queue_free()
-		return
+		return hit_points + hit_points * textures.size()
 
 	scale *= damage_scale
 	show_stage()
+	return hit_points
 
 func show_stage() -> void:
 	if textures.is_empty():

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal ball_lost
+signal scored(points: int)
 
 var velocidade = Vector2(200, -350)
 var rebote = 700
@@ -115,7 +116,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 		hit_sound.play()
 		if obj.has_method("take_hit"):
-			obj.take_hit()
+			scored.emit(obj.take_hit())
 		else:
 			obj.queue_free()
 			

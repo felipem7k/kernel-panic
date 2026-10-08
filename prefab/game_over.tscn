@@ -25,6 +25,13 @@ font_color = Color(1, 1, 0, 1)
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_record"]
+font = ExtResource("2_f7tnk")
+font_size = 20
+font_color = Color(0.4, 0.9, 1, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
 [node name="GameOver" type="CanvasLayer" unique_id=1573904218]
 process_mode = 3
 layer = 10
@@ -58,6 +65,18 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "O SISTEMA FOI INVADIDO"
 label_settings = SubResource("LabelSettings_subtitle")
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Content"]
+layout_mode = 2
+text = "PONTOS 00000"
+label_settings = SubResource("LabelSettings_subtitle")
+horizontal_alignment = 1
+
+[node name="Record" type="Label" parent="Content"]
+layout_mode = 2
+text = "RECORDE 00000"
+label_settings = SubResource("LabelSettings_record")
 horizontal_alignment = 1
 
 [node name="Hint" type="Label" parent="Content" unique_id=388715604]

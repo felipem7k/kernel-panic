@@ -8,6 +8,8 @@ var current_level: Node2D
 @onready var levels_container: Node2D = $Levels
 @onready var bullet: CharacterBody2D = $Bullet
 @onready var victory: CanvasLayer = $Victory
+@onready var game_over: CanvasLayer = $GameOver
+@onready var lives: Node = $Lives
 
 func _ready() -> void:
 	load_level(0)
@@ -17,6 +19,14 @@ func load_level(index: int) -> void:
 	current_level = levels[index].instantiate()
 	current_level.all_bricks_destroyed.connect(_on_all_bricks_destroyed)
 	levels_container.add_child(current_level)
+
+func _on_ball_lost() -> void:
+	lives.lose_life()
+	if lives.is_empty():
+		game_over.show_screen()
+		return
+
+	bullet.reset()
 
 func _on_all_bricks_destroyed() -> void:
 	current_level.queue_free()

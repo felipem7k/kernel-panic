@@ -1,0 +1,92 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" path="res://assets/menu-background.png" id="2_background"]
+[ext_resource type="Theme" path="res://assets/menu-theme.tres" id="3_theme"]
+[ext_resource type="AudioStream" uid="uid://b4pf47an2x4dd" path="res://assets/select.wav" id="4_select"]
+[ext_resource type="Script" path="res://scripts/audio_button.gd" id="5_audio_button"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.016, 0.125, 0.72, 1)
+
+[node name="Frame" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+ratio = 1.7768
+
+[node name="Stage" type="Control" parent="Frame"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Background" type="TextureRect" parent="Frame/Stage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_background")
+expand_mode = 1
+
+[node name="Options" type="VBoxContainer" parent="Frame/Stage"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5658
+anchor_top = 0.44
+anchor_right = 0.951
+anchor_bottom = 0.697
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_theme")
+theme_override_constants/separation = 11
+
+[node name="PlayButton" type="Button" parent="Frame/Stage/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "JOGAR"
+alignment = 0
+
+[node name="AudioButton" type="Button" parent="Frame/Stage/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "DESATIVAR ÁUDIO"
+alignment = 0
+script = ExtResource("5_audio_button")
+
+[node name="QuitButton" type="Button" parent="Frame/Stage/Options"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "SAIR"
+alignment = 0
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_select")
+
+[connection signal="mouse_entered" from="Frame/Stage/Options/PlayButton" to="Frame/Stage/Options/PlayButton" method="grab_focus"]
+[connection signal="pressed" from="Frame/Stage/Options/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Frame/Stage/Options/AudioButton" to="Frame/Stage/Options/AudioButton" method="grab_focus"]
+[connection signal="pressed" from="Frame/Stage/Options/AudioButton" to="." method="_on_audio_pressed"]
+[connection signal="mouse_entered" from="Frame/Stage/Options/QuitButton" to="Frame/Stage/Options/QuitButton" method="grab_focus"]
+[connection signal="pressed" from="Frame/Stage/Options/QuitButton" to="." method="_on_quit_pressed"]

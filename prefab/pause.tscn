@@ -1,0 +1,86 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_pause"]
+[ext_resource type="FontFile" uid="uid://cc55cooyqhw7h" path="res://assets/PressStart2P-Regular.ttf" id="2_font"]
+[ext_resource type="Theme" path="res://assets/menu-theme.tres" id="3_theme"]
+[ext_resource type="Script" path="res://scripts/audio_button.gd" id="4_audio_button"]
+[ext_resource type="AudioStream" uid="uid://b4pf47an2x4dd" path="res://assets/select.wav" id="5_select"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("2_font")
+font_size = 64
+font_color = Color(1, 1, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+layer = 10
+visible = false
+script = ExtResource("1_pause")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.84313726)
+
+[node name="Content" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="Title" type="Label" parent="Content"]
+layout_mode = 2
+text = "PAUSADO"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_theme")
+theme_override_constants/separation = 12
+
+[node name="ResumeButton" type="Button" parent="Content/Options"]
+custom_minimum_size = Vector2(460, 52)
+layout_mode = 2
+text = "CONTINUAR"
+alignment = 0
+
+[node name="AudioButton" type="Button" parent="Content/Options"]
+custom_minimum_size = Vector2(460, 52)
+layout_mode = 2
+text = "DESATIVAR ÁUDIO"
+alignment = 0
+script = ExtResource("4_audio_button")
+
+[node name="MainMenuButton" type="Button" parent="Content/Options"]
+custom_minimum_size = Vector2(460, 52)
+layout_mode = 2
+text = "MENU PRINCIPAL"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="Content/Options"]
+custom_minimum_size = Vector2(460, 52)
+layout_mode = 2
+text = "SAIR"
+alignment = 0
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_select")
+
+[connection signal="mouse_entered" from="Content/Options/ResumeButton" to="Content/Options/ResumeButton" method="grab_focus"]
+[connection signal="pressed" from="Content/Options/ResumeButton" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="Content/Options/AudioButton" to="Content/Options/AudioButton" method="grab_focus"]
+[connection signal="pressed" from="Content/Options/AudioButton" to="." method="_on_audio_pressed"]
+[connection signal="mouse_entered" from="Content/Options/MainMenuButton" to="Content/Options/MainMenuButton" method="grab_focus"]
+[connection signal="pressed" from="Content/Options/MainMenuButton" to="." method="_on_main_menu_pressed"]
+[connection signal="mouse_entered" from="Content/Options/QuitButton" to="Content/Options/QuitButton" method="grab_focus"]
+[connection signal="pressed" from="Content/Options/QuitButton" to="." method="_on_quit_pressed"]

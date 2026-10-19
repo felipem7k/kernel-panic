@@ -29,7 +29,7 @@ The project started from a base template provided by **professor Ignacio Sepúlv
 1. Install [Godot 4.7](https://godotengine.org/download) (standard version, no C# needed).
 2. Clone this repository.
 3. Open Godot, click **Import**, and select the `project.godot` file in the project root.
-4. Press `F5` to run. The main scene is `scenes/jogo.tscn`.
+4. Press `F5` to run. The main scene is `scenes/menu.tscn`, which starts the game in `scenes/jogo.tscn`.
 
 ## Credits
 
